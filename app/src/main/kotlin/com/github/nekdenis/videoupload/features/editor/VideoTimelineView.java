@@ -1,5 +1,5 @@
 
-package com.github.nekdenis.videoupload.ui.editor;
+package com.github.nekdenis.videoupload.features.editor;
 
 import android.content.Context;
 import android.graphics.Bitmap;
