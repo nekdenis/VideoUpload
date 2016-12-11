@@ -8,27 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.github.nekdenis.videoupload.MainActivity">
+    tools:context="com.github.nekdenis.videoupload.EditorActivity">
 
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/action_add"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+    <com.github.nekdenis.videoupload.features.editor.VideoTimelineView
+        android:id="@+id/timelineView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/videoView" />
 
     <Button
         android:id="@+id/proceedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/action_proceed"
-        android:layout_alignParentBottom="true"
-        android:visibility="gone"
-        tools:visibility="visible"/>
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
