@@ -26,7 +26,8 @@ import javax.inject.Singleton
         }
         val generated = cloudinary.url().transformation(
                 transformation)
-                .generate(videoName)
+                .generate(videoName).replace("image", "video")
+//                .videoTag(videoName, mapOf())
         return generated
     }
 
