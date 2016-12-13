@@ -7,4 +7,8 @@
     <string name="action_proceed">Proceed</string>
     <string name="action_add_error">Unable to load video</string>
 
+    <!--EditorActivity-->
+    <string name="action_add_trim">+</string>
+    <string name="action_remove_trim">-</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.github.nekdenis.videoupload.features
+package com.github.nekdenis.videoupload.features.editor.logic
 
 import com.cloudinary.Cloudinary
 import com.cloudinary.Transformation

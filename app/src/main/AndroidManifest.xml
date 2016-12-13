@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:name=".VUApp">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".features.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".EditorActivity" />
+        <activity android:name=".features.editor.ui.EditorActivity" />
     </application>
 
 </manifest>

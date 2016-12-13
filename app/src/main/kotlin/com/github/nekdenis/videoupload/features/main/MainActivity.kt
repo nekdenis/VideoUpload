@@ -1,9 +1,10 @@
-package com.github.nekdenis.videoupload
+package com.github.nekdenis.videoupload.features.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.github.nekdenis.videoupload.R
 import com.github.nekdenis.videoupload.features.RxBaseActivity
 import com.github.nekdenis.videoupload.router.MainRouter
 import com.github.nekdenis.videoupload.router.RouterConstants.REQUEST_CODE_VIDEO

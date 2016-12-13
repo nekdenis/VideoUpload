@@ -1,5 +1,5 @@
 
-package com.github.nekdenis.videoupload.features.editor;
+package com.github.nekdenis.videoupload.features.editor.ui;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -36,6 +36,7 @@ public class VideoTimelineView extends View {
     private int frameWidth;
     private int frameHeight;
     private int framesToLoad;
+    private boolean enabled;
 
     public VideoTimelineView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -45,7 +46,7 @@ public class VideoTimelineView extends View {
     public interface VideoTimelineViewDelegate {
         void onLeftProgressChanged(float progress);
 
-        void onRifhtProgressChanged(float progress);
+        void onRightProgressChanged(float progress);
     }
 
     public VideoTimelineView(Context context) {
@@ -69,7 +70,17 @@ public class VideoTimelineView extends View {
     }
 
     @Override
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+        paint.setColor(enabled ? 0xffffffff : 0x44ffffff);
+        invalidate();
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (!enabled) {
+            return false;
+        }
         if (event == null) {
             return false;
         }
@@ -126,7 +137,7 @@ public class VideoTimelineView extends View {
                 }
                 progressRight = (float) (endX - AndroidUtilities.dp(16)) / (float) width;
                 if (delegate != null) {
-                    delegate.onRifhtProgressChanged(progressRight);
+                    delegate.onRightProgressChanged(progressRight);
                 }
                 invalidate();
                 return true;

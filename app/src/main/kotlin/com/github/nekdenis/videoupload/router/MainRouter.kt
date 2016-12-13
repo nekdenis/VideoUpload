@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.provider.MediaStore
-import com.github.nekdenis.videoupload.EditorActivity
+import com.github.nekdenis.videoupload.features.editor.ui.EditorActivity
 
 class MainRouter {
 

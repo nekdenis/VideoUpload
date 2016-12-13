@@ -1,8 +1,9 @@
 package com.github.nekdenis.videoupload.di.upload
 
-import com.github.nekdenis.videoupload.EditorActivity
 import com.github.nekdenis.videoupload.di.AppModule
 import com.github.nekdenis.videoupload.di.NetworkModule
+import com.github.nekdenis.videoupload.features.editor.logic.EditorPresenter
+import com.github.nekdenis.videoupload.features.editor.ui.EditorActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,6 +17,7 @@ import javax.inject.Singleton
 interface UploadComponent {
 
     fun inject(editorActivity: EditorActivity)
+    fun inject(editorPresenter: EditorPresenter)
 
 }
 

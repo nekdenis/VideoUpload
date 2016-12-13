@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!--Editor-->
+    <color name="editor_trim_time_bg">@color/black_semi_transparent</color>
+
+
+    <!--colors-->
+    <color name="black_semi_transparent">#9000</color>
 </resources>

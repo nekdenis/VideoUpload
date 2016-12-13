@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="RelativeLayout">
+
+    <com.github.nekdenis.videoupload.features.editor.ui.VideoTimelineView
+        android:id="@+id/videoTimelineView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_toStartOf="@+id/timelineButton" />
+
+    <TextView
+        android:id="@+id/timelineTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1:00/10:00"
+        android:background="@color/editor_trim_time_bg"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@id/timelineButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp" />
+</merge>
