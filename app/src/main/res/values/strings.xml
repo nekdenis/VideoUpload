@@ -2,7 +2,7 @@
     <string name="app_name">Video Upload</string>
 
     <!--MainActivity-->
-    <string name="action_add">+</string>
+    <string name="action_add">+ Add video</string>
     <string name="action_upload">Upload</string>
     <string name="action_proceed">Proceed</string>
     <string name="action_add_error">Unable to load video</string>
