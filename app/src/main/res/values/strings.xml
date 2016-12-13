@@ -10,5 +10,7 @@
     <!--EditorActivity-->
     <string name="action_add_trim">+</string>
     <string name="action_remove_trim">-</string>
+    <string name="download_video_title">Video downloading</string>
+    <string name="download_video_description">It will be downloaded to Downloads folder</string>
 
 </resources>

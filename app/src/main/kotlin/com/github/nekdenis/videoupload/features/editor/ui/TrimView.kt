@@ -48,23 +48,24 @@ class TrimView(context: Context) : RelativeLayout(context), VideoTimelineViewDel
         mediaMetadataRetriever.setDataSource(pathToVideo)
         val duration = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
         videoLength = java.lang.Long.parseLong(duration)
+        trimPartInfo!!.endTimeSec = videoLength
         updateTime()
     }
 
     private fun updateTime() {
         if (trimPartInfo != null) {
-            timelineTime.text = VideoUtil.parseVideoStartStop(trimPartInfo!!.startPercent, trimPartInfo!!.endPercent, videoLength)
+            timelineTime.text = VideoUtil.parseVideoStartStop(trimPartInfo!!.startTimeSec, trimPartInfo!!.endTimeSec)
         }
     }
 
     //region VideoTimelineViewDelegate
     override fun onLeftProgressChanged(progress: Float) {
-        trimPartInfo!!.startPercent = progress
+        trimPartInfo!!.startTimeSec = (progress * videoLength).toLong()
         updateTime()
     }
 
     override fun onRightProgressChanged(progress: Float) {
-        trimPartInfo!!.endPercent = progress
+        trimPartInfo!!.endTimeSec = ((progress * videoLength).toLong())
         updateTime()
     }
 

@@ -8,6 +8,7 @@ import com.github.nekdenis.videoupload.features.RxBaseActivity
 import com.github.nekdenis.videoupload.features.editor.EditorContract
 import com.github.nekdenis.videoupload.features.editor.data.TrimPartInfo
 import com.github.nekdenis.videoupload.features.editor.logic.EditorPresenter
+import com.github.nekdenis.videoupload.router.MainRouter
 import com.github.nekdenis.videoupload.router.RouterConstants
 import kotlinx.android.synthetic.main.activity_editor.*
 
@@ -17,6 +18,7 @@ class EditorActivity : RxBaseActivity(), EditorContract.View, TrimView.TrimViewC
 
     private val presenter = EditorPresenter()
     private val trimViews = mutableMapOf<TrimPartInfo, TrimView>()
+    private val router = MainRouter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +77,14 @@ class EditorActivity : RxBaseActivity(), EditorContract.View, TrimView.TrimViewC
         } else {
             proceedButton.visibility = View.GONE
         }
+    }
+
+    override fun openVideoInBrowser(trimmedVideoUrl: String) {
+        router.openBrowser(this, trimmedVideoUrl)
+    }
+
+    override fun downloadFile(trimmedVideoUrl: String, name: String) {
+        router.downloadFile(this, trimmedVideoUrl, name)
     }
 
 

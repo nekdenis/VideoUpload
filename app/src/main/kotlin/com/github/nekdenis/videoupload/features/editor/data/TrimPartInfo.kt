@@ -1,6 +1,6 @@
 package com.github.nekdenis.videoupload.features.editor.data
 
-data class TrimPartInfo(var startPercent: Float, var endPercent: Float, val videoPath: String) {
+data class TrimPartInfo(var startTimeSec: Long, var endTimeSec: Long, val videoPath: String) {
 
     val id = System.currentTimeMillis()
 

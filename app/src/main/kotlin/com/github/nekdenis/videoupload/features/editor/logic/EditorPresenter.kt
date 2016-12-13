@@ -14,6 +14,8 @@ class EditorPresenter : EditorContract.Presenter {
 
     private var view: EditorContract.View? = null
 
+    private var uploadedVideo:UploadResponse? = null
+
     @Inject lateinit var uploadModel: UploadModel
 
     init {
@@ -33,7 +35,7 @@ class EditorPresenter : EditorContract.Presenter {
     override fun setVideo(videoPath: String?) {
         if (videoPath != null && view != null) {
             DLog.d(TAG, "video path: $videoPath")
-            view!!.addVideoTrim(videoPath, TrimPartInfo(0f, 1f, videoPath))
+            view!!.addVideoTrim(videoPath, TrimPartInfo(0L, 1L, videoPath))
             view!!.showVideo(videoPath)
             uploadVideo(videoPath)
         } else {
@@ -47,13 +49,13 @@ class EditorPresenter : EditorContract.Presenter {
 
     override fun onAddTrimViewClicked(trimPartInfo: TrimPartInfo) {
         view!!.setAsAppliedVideoTrim(trimPartInfo)
-        view!!.addVideoTrim(trimPartInfo.videoPath, TrimPartInfo(0f, 1f, trimPartInfo.videoPath))
+        view!!.addVideoTrim(trimPartInfo.videoPath, TrimPartInfo(0L, 0L, trimPartInfo.videoPath))
     }
 
     override fun onProceed(list: List<TrimPartInfo>) {
-//        view.openInBrowser(
-//        uploadModel.getTrimVideoUrl(videoName = list[0].videoPath)
-//
+        val trimedVideoUrl = uploadModel.getTrimVideoUrl(uploadedVideo!!.name, list)
+        view!!.openVideoInBrowser(trimedVideoUrl)
+        view!!.downloadFile(trimedVideoUrl, uploadedVideo!!.name)
     }
 
     //endregion
@@ -74,9 +76,8 @@ class EditorPresenter : EditorContract.Presenter {
     }
 
     private fun videoUploaded(result: UploadResponse) {
+        uploadedVideo = result
         DLog.d(TAG, "result: ${result.responseValues}")
-        val trimVideoUrl = uploadModel.getTrimVideoUrl(result.name)
-        DLog.d(TAG, "trimmed: $trimVideoUrl")
         view!!.showProgress(false)
         view!!.showProceedButton(true)
     }

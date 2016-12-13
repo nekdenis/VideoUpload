@@ -11,6 +11,8 @@ interface EditorContract {
         fun removeVideoTrim(trimPartInfo: TrimPartInfo)
         fun showProgress(isVisible: Boolean)
         fun showProceedButton(isVisible: Boolean)
+        fun openVideoInBrowser(trimmedVideoUrl: String)
+        fun downloadFile(trimmedVideoUrl: String, name: String)
     }
 
     interface Presenter {
