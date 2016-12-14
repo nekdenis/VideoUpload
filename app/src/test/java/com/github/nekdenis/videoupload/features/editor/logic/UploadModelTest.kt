@@ -17,7 +17,7 @@ class UploadModelTest {
     @Before
     fun setUp() {
         val config = hashMapOf<String, String>()
-        config.put("cloud_name", "name")
+        config.put("cloud_name", "dkmnnzi6p")
         config.put("api_key", "key")
         config.put("api_secret", "secret")
         cloudinary = Cloudinary(config)
@@ -28,7 +28,7 @@ class UploadModelTest {
     fun getTrimVideoUrl() {
         val trimPart1 = TrimPartInfo(0, 10, "")
         val trimPart2 = TrimPartInfo(2, 30, "")
-        Assert.assertEquals("http://res.cloudinary.com/name/video/upload/eo_2,so_1/eo_10,fl_splice,l_video:cde0rsw93nas8cmuo063,so_0/eo_30,fl_splice,l_video:cde0rsw93nas8cmuo063,so_2/cde0rsw93nas8cmuo063",
+        Assert.assertEquals("http://res.cloudinary.com/dkmnnzi6p/video/upload/so_0,eo_0/eo_0,fl_splice,l_video:cde0rsw93nas8cmuo063,so_0/fl_layer_apply/cde0rsw93nas8cmuo063",
                 model.getTrimVideoUrl("cde0rsw93nas8cmuo063", listOf(trimPart1, trimPart2)))
     }
 

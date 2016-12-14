@@ -12,6 +12,6 @@ package com.github.nekdenis.videoupload.network.api
 // original_filename=file, width=240, created_at=2016-12-11T11:46:47Z, is_audio=false, tags=[], bytes=435555, type=upload}
 class UploadResponse(val responseValues: Map<Any?, Any?>) {
     val url = responseValues["url"] as String
-    val name = responseValues["public_id"] as String + "." + responseValues["format"]
+    val name = responseValues["public_id"] as String
 }
 
