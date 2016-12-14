@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import com.github.nekdenis.videoupload.R
 import com.github.nekdenis.videoupload.features.RxBaseActivity
@@ -31,6 +32,14 @@ class MainActivity : RxBaseActivity() {
                 openCamera()
             }
         }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        addButton.scaleX = 0f
+        addButton.scaleY = 0f
+        addButton.animate().setStartDelay(200).setDuration(600).scaleX(1f).scaleY(1f).setInterpolator(DecelerateInterpolator()).start()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -73,7 +82,7 @@ class MainActivity : RxBaseActivity() {
                     router.startEditor(this, videoPath)
                 }
                 addButton.visibility = View.GONE
-
+                videoView.visibility = View.VISIBLE
                 videoView.setVideoURI(videoUri)
                 videoView.start()
             } else {
